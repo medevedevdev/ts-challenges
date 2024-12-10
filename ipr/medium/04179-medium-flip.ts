@@ -20,9 +20,9 @@
 
 /* _____________ Your Code Here _____________ */
 
-type Flip<T> = {
-  [K in keyof T as T[K] extends string | number | boolean ? `${T[K]}` : never]: K;
-};
+type Flip<T extends Record<string, number | string | boolean>> = {
+  [K in keyof T as `${T[K]}`] : K
+}
 
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect, NotEqual } from '@type-challenges/utils'
